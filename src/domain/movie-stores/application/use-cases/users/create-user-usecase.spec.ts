@@ -1,20 +1,25 @@
-import { User } from '@/domain/movie-stores/enterprise/entities/users/users'
-import { UsersRepository } from '@/domain/movie-stores/application/repositories/users/users-repository'
 import { CreateUsersUseCase } from './create-user-usecase'
+import { InMemoryUsersRepository } from 'test/repositories/in-memory-users-repository'
 
-const fakeUserRepository: UsersRepository = {
-  create: async (user: User) => {},
-}
+let inMemoryUsersRepository: InMemoryUsersRepository
+let sut: CreateUsersUseCase
 
-test('create user', async () => {
-  const userCreate = new CreateUsersUseCase(fakeUserRepository)
-
-  const result = await userCreate.execute({
-    name: 'User Example',
-    email: 'user-example@text.com',
-    admin: true,
-    sector: 'Cadastro',
+describe('Create User', () => {
+  beforeEach(() => {
+    inMemoryUsersRepository = new InMemoryUsersRepository()
+    sut = new CreateUsersUseCase(inMemoryUsersRepository)
   })
 
-  expect(result.name).toEqual('User Example')
+  it('should be able to create a user', async () => {
+    const { user } = await sut.execute({
+      name: 'User Example',
+      email: 'user-example@text.com',
+      admin: true,
+      sector: 'Cadastro',
+    })
+  
+    expect(user.name).toEqual('User Example')
+  })
 })
+
+

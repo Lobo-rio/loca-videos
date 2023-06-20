@@ -8,10 +8,16 @@ interface CreateUsersUseCaseRequest {
   sector: string
 }
 
+interface CreateUsersUseCaseResponse {
+  user: User
+}
+
 export class CreateUsersUseCase {
   constructor(private readonly userRepository: UsersRepository) {}
 
-  async execute({ name, email, admin, sector }: CreateUsersUseCaseRequest) {
+  async execute(
+    { name, email, admin, sector }: CreateUsersUseCaseRequest
+  ): Promise<CreateUsersUseCaseResponse> {
     const user = User.create({
       name,
       email,
@@ -21,6 +27,8 @@ export class CreateUsersUseCase {
 
     await this.userRepository.create(user)
 
-    return user
+    return {
+      user
+    }
   }
 }
