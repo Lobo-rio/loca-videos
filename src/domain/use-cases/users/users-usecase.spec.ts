@@ -1,4 +1,3 @@
-import { expect, test } from "vitest"
 import { CreateUsersUseCase } from "./users-usecase"
 import { UsersRepository } from "../../repositories/users/users-repository"
 import { User } from "../../entities/users/users"
