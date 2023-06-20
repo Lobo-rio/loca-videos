@@ -1,6 +1,6 @@
-import { CreateUsersUseCase } from './users-usecase'
-import { UsersRepository } from '../../repositories/users/users-repository'
-import { User } from '../../entities/users/users'
+import { User } from '@/domain/movie-stores/enterprise/entities/users/users'
+import { UsersRepository } from '@/domain/movie-stores/application/repositories/users/users-repository'
+import { CreateUsersUseCase } from './create-user-usecase'
 
 const fakeUserRepository: UsersRepository = {
   create: async (user: User) => {},
