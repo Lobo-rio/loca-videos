@@ -1,0 +1,18 @@
+{
+  "name": "loca-videos",
+  "version": "1.0.0",
+  "description": "DDD",
+  "main": "index.js",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.3.1",
+    "typescript": "^5.1.3",
+    "vitest": "^0.32.2"
+  }
+}
