@@ -9,7 +9,7 @@ export function makeUsers(
         name: faker.lorem.sentence(),
         email: 'user-example@text.com',
         admin: true,
-        sector: faker.animal.horse(),
+        sector: faker.company.name(),
         ...override,
       }
     )
