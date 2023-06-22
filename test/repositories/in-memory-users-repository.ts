@@ -2,30 +2,39 @@ import { UsersRepository } from "@/domain/movie-stores/application/repositories/
 import { User } from "@/domain/movie-stores/enterprise/entities/users/users";
 
 export class InMemoryUsersRepository implements UsersRepository {
-    public items: User[] = []
+    
+    public users: User[] = []
 
     async findById(id: string) {
-        const item = this.items.find((item) => id === item.id.toString())
+        const user = this.users.find((user) => id === user.id.toString())
 
-        if (!item) return null
+        if (!user) return null
         
-        return item
+        return user
+    }
+
+    async findByEmail(email: string) {
+        const user = this.users.find((user) => email === user.email)
+
+        if (!user) return null
+        
+        return user
     }
 
     async findMany() {
-        return this.items
+        return this.users
     }
 
     async create(user: User) {
-        this.items.push(user)
+        this.users.push(user)
     }
 
     async update(id: string, user: User) {
-        const item = this.items.find((item) => id === item.id.toString())
+        const userExisted = this.users.find((user) => id === user.id.toString())
     }
     
     async delete(id: string) {
-        const itemIndex = this.items.findIndex((item) => id === item.id.toString())
-        this.items.splice(itemIndex, 1)
+        const userIndex = this.users.findIndex((user) => id === user.id.toString())
+        this.users.splice(userIndex, 1)
     }
 }

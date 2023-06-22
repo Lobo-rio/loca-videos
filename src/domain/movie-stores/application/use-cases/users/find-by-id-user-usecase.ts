@@ -1,9 +1,11 @@
 import { User } from '@/domain/movie-stores/enterprise/entities/users/users'
 import { UsersRepository } from '../../repositories/users/users-repository'
+import { Either, left, right } from '@/core/types/either'
+import { ResourceNotFoundError } from '../errors/resource-not-found-error'
 
-interface FindByIdUsersUseCaseResponse {
+type FindByIdUsersUseCaseResponse = Either<ResourceNotFoundError, {
   user: User
-}
+}>
 
 export class FindByIdUsersUseCase {
   constructor(private readonly userRepository: UsersRepository) {}
@@ -11,10 +13,8 @@ export class FindByIdUsersUseCase {
   async execute(id: string): Promise<FindByIdUsersUseCaseResponse> {
     const user = await this.userRepository.findById(id)
 
-    if (!user) throw new Error('User not found!')
+    if (!user) return left(new ResourceNotFoundError())
 
-    return {
-      user,
-    }
+    return right({ user })
   }
 }

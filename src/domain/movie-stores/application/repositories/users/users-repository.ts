@@ -3,6 +3,7 @@ import { UpdadeUsersUseCaseRequest } from '../../use-cases/users/update-user-use
 
 export interface UsersRepository {
   findById(id: string): Promise<User | null>
+  findByEmail(email: string): Promise<User | null>
   findMany(): Promise<User[]>
   create(user: User): Promise<void>
   update(id: string, data: UpdadeUsersUseCaseRequest): Promise<void>

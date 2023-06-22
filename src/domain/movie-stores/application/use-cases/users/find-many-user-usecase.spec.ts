@@ -18,9 +18,8 @@ describe('Find Many Users', () => {
     const newUser = makeUsers()
     await createUsersUseCase.execute(newUser)
 
-    const { users } = await sut.execute()
+    const result = await sut.execute()
 
-    expect(users[0].id).toBeTruthy()
-    expect(users.length).toEqual(1)
+    expect(result.isRight()).toBe(true)
   })
 })

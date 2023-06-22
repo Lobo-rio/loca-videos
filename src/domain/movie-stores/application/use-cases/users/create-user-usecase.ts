@@ -1,5 +1,7 @@
 import { User } from '@/domain/movie-stores/enterprise/entities/users/users'
 import { UsersRepository } from '../../repositories/users/users-repository'
+import { Either, left, right } from '@/core/types/either'
+import { ResourceExistedError } from '../errors/resource-existed-error'
 
 interface CreateUsersUseCaseRequest {
   name: string
@@ -8,9 +10,9 @@ interface CreateUsersUseCaseRequest {
   sector: string
 }
 
-interface CreateUsersUseCaseResponse {
+type CreateUsersUseCaseResponse = Either<ResourceExistedError, {
   user: User
-}
+}>
 
 export class CreateUsersUseCase {
   constructor(private readonly userRepository: UsersRepository) {}
@@ -28,10 +30,14 @@ export class CreateUsersUseCase {
       sector,
     })
 
+    const userExisted = await this.userRepository.findByEmail(email)
+
+    if (userExisted) return left(new ResourceExistedError())
+
     await this.userRepository.create(user)
 
-    return {
+    return right({
       user,
-    }
+    })
   }
 }
