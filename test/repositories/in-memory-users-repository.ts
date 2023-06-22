@@ -11,15 +11,19 @@ export class InMemoryUsersRepository implements UsersRepository {
         
         return item
     }
+
     async findMany() {
         return this.items
     }
+
     async create(user: User) {
         this.items.push(user)
     }
-    update(id: string, user: User): Promise<void> {
-        throw new Error("Method not implemented.");
+
+    async update(id: string, user: User) {
+        const item = this.items.find((item) => id === item.id.toString())
     }
+    
     async delete(id: string) {
         const itemIndex = this.items.findIndex((item) => id === item.id.toString())
         this.items.splice(itemIndex, 1)

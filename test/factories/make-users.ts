@@ -3,8 +3,7 @@ import { User, UserProps } from "@/domain/movie-stores/enterprise/entities/users
 import { UniqueEntityID } from "@/core/entities/unique-entity-id"
 
 export function makeUsers(
-    override: Partial<UserProps> = {},
-    id?: UniqueEntityID,
+    override: Partial<UserProps> = {}
 ) {
     const user = User.create({
         name: faker.lorem.sentence(),
@@ -12,8 +11,7 @@ export function makeUsers(
         admin: true,
         sector: faker.animal.horse(),
         ...override,
-      },
-      id,
+      }
     )
 
     return user

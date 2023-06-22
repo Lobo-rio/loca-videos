@@ -1,10 +1,9 @@
-import { User } from "@/domain/movie-stores/enterprise/entities/users/users"
-import { UsersRepository } from "../../repositories/users/users-repository"
+import { UsersRepository } from '../../repositories/users/users-repository'
 
 export interface UpdadeUsersUseCaseRequest {
-    name?: string,
-    admin?: boolean,
-    sector?: string,
+  name?: string
+  admin?: boolean
+  sector?: string
 }
 
 interface UpdadeUsersUseCaseResponse {}
@@ -14,12 +13,9 @@ export class UpdadeUsersUseCase {
 
   async execute(
     id: string,
-    data: UpdadeUsersUseCaseRequest
+    data: UpdadeUsersUseCaseRequest,
   ): Promise<UpdadeUsersUseCaseResponse> {
-    await this.userRepository.update(
-        id,
-        data,
-    )
+    await this.userRepository.update(id, data)
 
     return {}
   }

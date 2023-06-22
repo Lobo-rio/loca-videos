@@ -1,5 +1,5 @@
-import { User } from "@/domain/movie-stores/enterprise/entities/users/users"
-import { UsersRepository } from "../../repositories/users/users-repository"
+import { User } from '@/domain/movie-stores/enterprise/entities/users/users'
+import { UsersRepository } from '../../repositories/users/users-repository'
 
 interface FindManyUsersUseCaseResponse {
   users: User[]
@@ -12,7 +12,7 @@ export class FindManyUsersUseCase {
     const users = await this.userRepository.findMany()
 
     return {
-      users
+      users,
     }
   }
 }

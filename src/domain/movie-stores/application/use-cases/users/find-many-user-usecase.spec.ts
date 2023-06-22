@@ -11,7 +11,7 @@ describe('Find Many Users', () => {
   beforeEach(() => {
     inMemoryUsersRepository = new InMemoryUsersRepository()
     createUsersUseCase = new CreateUsersUseCase(inMemoryUsersRepository)
-    sut: new FindManyUsersUseCase(inMemoryUsersRepository)
+    sut = new FindManyUsersUseCase(inMemoryUsersRepository)
   })
 
   it('should be able to find many a users', async () => {
@@ -19,11 +19,8 @@ describe('Find Many Users', () => {
     await createUsersUseCase.execute(newUser)
 
     const { users } = await sut.execute()
-    
+
     expect(users[0].id).toBeTruthy()
+    expect(users.length).toEqual(1)
   })
 })
-
-
-
-

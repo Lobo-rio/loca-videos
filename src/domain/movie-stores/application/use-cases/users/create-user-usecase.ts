@@ -1,5 +1,5 @@
-import { User } from "@/domain/movie-stores/enterprise/entities/users/users"
-import { UsersRepository } from "../../repositories/users/users-repository"
+import { User } from '@/domain/movie-stores/enterprise/entities/users/users'
+import { UsersRepository } from '../../repositories/users/users-repository'
 
 interface CreateUsersUseCaseRequest {
   name: string
@@ -15,9 +15,12 @@ interface CreateUsersUseCaseResponse {
 export class CreateUsersUseCase {
   constructor(private readonly userRepository: UsersRepository) {}
 
-  async execute(
-    { name, email, admin, sector }: CreateUsersUseCaseRequest
-  ): Promise<CreateUsersUseCaseResponse> {
+  async execute({
+    name,
+    email,
+    admin,
+    sector,
+  }: CreateUsersUseCaseRequest): Promise<CreateUsersUseCaseResponse> {
     const user = User.create({
       name,
       email,
@@ -28,7 +31,7 @@ export class CreateUsersUseCase {
     await this.userRepository.create(user)
 
     return {
-      user
+      user,
     }
   }
 }

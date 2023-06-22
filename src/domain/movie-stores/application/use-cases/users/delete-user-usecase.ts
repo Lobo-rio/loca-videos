@@ -1,5 +1,4 @@
-import { User } from "@/domain/movie-stores/enterprise/entities/users/users"
-import { UsersRepository } from "../../repositories/users/users-repository"
+import { UsersRepository } from '../../repositories/users/users-repository'
 
 interface DeleteUsersUseCaseResponse {}
 
@@ -13,6 +12,6 @@ export class DeleteUsersUseCase {
 
     await this.userRepository.delete(user.id.toString())
 
-    return { }
+    return {}
   }
 }

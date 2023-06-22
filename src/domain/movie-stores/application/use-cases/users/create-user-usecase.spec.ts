@@ -18,5 +18,3 @@ describe('Create User', () => {
     expect(newUser.id).toBeTruthy()
   })
 })
-
-
