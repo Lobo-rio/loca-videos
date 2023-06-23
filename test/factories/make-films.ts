@@ -7,7 +7,7 @@ export function makeFilms(
 ) {
     const film = Films.create({
         title: 'Automatic Film In Test',
-        slug: 'automatic-film-in-test',
+        slug: Slug.create('Automatic Film In Test'),
         description: faker.lorem.text(),
         launch: new Date(),
         boxOffice: 1876098,
