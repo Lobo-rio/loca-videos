@@ -17,7 +17,25 @@ describe('Update Film', () => {
     sut = new UpdadeFilmsUseCase(inMemoryFilmsRepository)
   })
 
-  it.todo('should be able to update a Films')
+  it('should be able to update a Films', async () => {
+    const newFilm = makeFilms()
+    const filmCreated = await createFilmsUseCase.execute(newFilm)
+    let id: string = ''
+    if (filmCreated.isRight()) id = filmCreated.value?.film.id.toString()
+
+    const result = await sut.execute(
+      id,
+      {
+        description: faker.lorem.text(),
+        launch: new Date(),
+        boxOffice: 258969855,
+        indications: faker.company.name(),
+        basedOn: faker.animal.bird()
+      }
+    )
+
+    expect(result.isRight()).toBe(true)
+  })
 
   it('should not be able to delete a film not found', async () => {
     const newFilm = makeFilms()

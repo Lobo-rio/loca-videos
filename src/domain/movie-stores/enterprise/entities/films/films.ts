@@ -48,6 +48,11 @@ export class Films extends Entity<FilmsProps> {
     return this.props.basedOn
   }
 
+  set description(description: string) {
+    this.props.description = description
+    this.touch()
+  }
+
   set launch(launch: Date) {
     this.props.launch = launch
     this.touch()
