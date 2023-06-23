@@ -15,14 +15,16 @@ describe('Delete User', () => {
     sut = new DeleteUsersUseCase(inMemoryUsersRepository)
   })
 
-  it.skip('should be able to delete a user', async () => {
+  it('should be able to delete a user', async () => {
     const newUser = makeUsers()
     const userCreated = await createUsersUseCase.execute(newUser)
-    const id: string = userCreated.value?.user[0].id.toString()
+    let id: string = ''
+    if (userCreated.isRight()) id = userCreated.value?.user.id.toString()
 
-    await sut.execute(id)
+    const result = await sut.execute(id)
 
-    expect(inMemoryUsersRepository.items.length).toEqual(0)
+    expect(inMemoryUsersRepository.users.length).toEqual(0)
+    expect(result.isRight()).toEqual(true)
   })
 
   it('should be able to delte not found a user', async () => {

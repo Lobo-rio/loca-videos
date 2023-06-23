@@ -27,6 +27,7 @@ export class InMemoryUsersRepository implements UsersRepository {
 
     async create(user: User) {
         this.users.push(user)
+        return user;
     }
 
     async update(id: string, user: User) {

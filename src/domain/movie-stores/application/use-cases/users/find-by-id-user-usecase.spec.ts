@@ -15,7 +15,7 @@ describe('Find By Id User', () => {
     sut = new FindByIdUsersUseCase(inMemoryUsersRepository)
   })
 
-  it.skip('should be able to find by id a user', async () => {
+  it('should be able to find by id a user', async () => {
     const newUser = makeUsers()
     const userCreated = await createUsersUseCase.execute(newUser)
     let id: string = ''
