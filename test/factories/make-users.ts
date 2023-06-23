@@ -1,6 +1,5 @@
 import { faker } from "@faker-js/faker"
 import { User, UserProps } from "@/domain/movie-stores/enterprise/entities/users/users"
-import { UniqueEntityID } from "@/core/entities/unique-entity-id"
 
 export function makeUsers(
     override: Partial<UserProps> = {}

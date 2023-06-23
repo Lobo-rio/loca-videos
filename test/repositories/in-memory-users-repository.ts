@@ -2,7 +2,6 @@ import { UsersRepository } from "@/domain/movie-stores/application/repositories/
 import { User } from "@/domain/movie-stores/enterprise/entities/users/users";
 
 export class InMemoryUsersRepository implements UsersRepository {
-    
     public users: User[] = []
 
     async findById(id: string) {
