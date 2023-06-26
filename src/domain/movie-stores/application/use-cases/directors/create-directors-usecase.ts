@@ -13,7 +13,7 @@ export interface CreateDirectorsUseCaseRequest {
 type CreateDirectorsUseCaseResponse = Either<ResourceExistedError, {
   director: Directors
 }>
-
+ 
 export class CreateDirectorsUseCase {
   constructor(private readonly directorRepository: DirectorsRepository) {}
 
