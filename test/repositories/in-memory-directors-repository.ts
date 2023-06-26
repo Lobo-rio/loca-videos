@@ -1,4 +1,5 @@
 import { DirectorsRepository } from "@/domain/movie-stores/application/repositories/directors/directors-repository"
+import { UpdadeDirectorsUseCaseRequest } from "@/domain/movie-stores/application/use-cases/directors/update-directors-usecase"
 import { Directors } from "@/domain/movie-stores/enterprise/entities/directors/directors"
 
 export class InMemoryDirectorsRepository implements DirectorsRepository {
@@ -34,7 +35,10 @@ export class InMemoryDirectorsRepository implements DirectorsRepository {
         const directorExisted = this.directors.find((director) => id === director.id.toString())
         
         if (directorExisted) {
-            
+            directorExisted.name = directorUpdate.name
+            directorExisted.sex = directorUpdate.sex
+            directorExisted.birth = directorUpdate.birth
+            directorExisted.country = directorUpdate.country 
         }
 
         const directorIndex = this.directors.findIndex((director) => id === director.id.toString())

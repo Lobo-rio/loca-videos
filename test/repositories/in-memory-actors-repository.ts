@@ -35,7 +35,10 @@ export class InMemoryActorsRepository implements ActorsRepository {
         const actorExisted = this.actors.find((actor) => id === actor.id.toString())
         
         if (actorExisted) {
-            
+            actorExisted.name = actorUpdate.name
+            actorExisted.sex = actorUpdate.sex
+            actorExisted.birth = actorUpdate.birth
+            actorExisted.country = actorUpdate.country 
         }
 
         const actorIndex = this.actors.findIndex((actor) => id === actor.id.toString())
