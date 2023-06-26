@@ -3,7 +3,7 @@ import { UpdadeFilmsUseCaseRequest } from "@/domain/movie-stores/application/use
 import { Films } from "@/domain/movie-stores/enterprise/entities/films/films"
 
 export class InMemoryFilmsRepository implements FilmsRepository {
-       public films: Films[] = []
+    public films: Films[] = []
 
     async findById(id: string) {
         const film = this.films.find((film) => id === film.id.toString())
