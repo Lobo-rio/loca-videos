@@ -1,6 +1,6 @@
 import { InMemoryActorsRepository } from "test/repositories/in-memory-actors-repository"
 import { CreateActorsUseCase } from "./create-actors-usecase"
-import { FindManyActorsUseCase } from "./find-many-actor-usecase"
+import { FindManyActorsUseCase } from "./find-many-actors-usecase"
 import { makeActors } from "test/factories/make-actors"
 
 let inMemoryActorsRepository: InMemoryActorsRepository

@@ -1,7 +1,7 @@
 import { InMemoryActorsRepository } from 'test/repositories/in-memory-actors-repository'
 import { ResourceNotFoundError } from '../errors/resource-not-found-error'
 import { CreateActorsUseCase } from './create-actors-usecase'
-import { FindByIdActorsUseCase } from './find-by-id-actorusecase'
+import { FindByIdActorsUseCase } from './find-by-id-actors-usecase'
 import { makeActors } from 'test/factories/make-actors'
 
 let inMemoryActorsRepository: InMemoryActorsRepository
