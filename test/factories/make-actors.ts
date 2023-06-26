@@ -1,5 +1,5 @@
-import { Actors, ActorsProps } from "@/domain/movie-stores/enterprise/entities/actors/actors"
 import { faker } from "@faker-js/faker"
+import { Actors, ActorsProps } from "@/domain/movie-stores/enterprise/entities/actors/actors"
 
 export function makeActors(
     override: Partial<ActorsProps> = {}

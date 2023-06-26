@@ -1,4 +1,5 @@
 import { ActorsRepository } from "@/domain/movie-stores/application/repositories/actors/actors-repository"
+import { UpdadeActorsUseCaseRequest } from "@/domain/movie-stores/application/use-cases/actors/update-actors-usecase"
 import { Actors } from "@/domain/movie-stores/enterprise/entities/actors/actors"
 
 export class InMemoryActorsRepository implements ActorsRepository {
