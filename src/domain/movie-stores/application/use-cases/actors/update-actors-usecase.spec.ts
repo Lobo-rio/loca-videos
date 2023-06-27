@@ -23,15 +23,12 @@ describe('Update Actor', () => {
     let id: string = ''
     if (actorCreated.isRight()) id = actorCreated.value?.actor.id.toString()
 
-    const result = await sut.execute(
-      id,
-      {
-        name: 'Gilberto Medeiros',
-        sex: 'Masculino',
-        birth: new Date('1970-08-05'),
-        country: faker.location.city(),
-      }
-    )
+    const result = await sut.execute(id, {
+      name: 'Gilberto Medeiros',
+      sex: 'Masculino',
+      birth: new Date('1970-08-05'),
+      country: faker.location.city(),
+    })
 
     expect(result.isRight()).toBe(true)
   })
@@ -40,14 +37,12 @@ describe('Update Actor', () => {
     const newActor = makeActors()
     await createActorsUseCase.execute(newActor)
 
-    const result = await sut.execute(
-        'actor-test-1', 
-        {
-          name: 'Gilberto Medeiros',
-          sex: 'Masculino',
-          birth: new Date('1970-08-05'),
-          country: faker.location.city(),
-        })
+    const result = await sut.execute('actor-test-1', {
+      name: 'Gilberto Medeiros',
+      sex: 'Masculino',
+      birth: new Date('1970-08-05'),
+      country: faker.location.city(),
+    })
 
     expect(result.isLeft()).toBe(true)
     expect(result.value).toBeInstanceOf(ResourceNotFoundError)

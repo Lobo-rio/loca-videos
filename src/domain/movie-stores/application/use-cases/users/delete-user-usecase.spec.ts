@@ -30,7 +30,7 @@ describe('Delete User', () => {
   it('should be able to delte not found a user', async () => {
     const newUser = makeUsers()
     await createUsersUseCase.execute(newUser)
-    
+
     const result = await sut.execute('user-test-1')
 
     expect(result.isLeft()).toBe(true)

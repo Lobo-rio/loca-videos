@@ -30,7 +30,7 @@ describe('Delete Film', () => {
   it('should be able to delte not found a Film', async () => {
     const newFilm = makeFilms()
     await createFilmsUseCase.execute(newFilm)
-    
+
     const result = await sut.execute('Film-test-1')
 
     expect(result.isLeft()).toBe(true)

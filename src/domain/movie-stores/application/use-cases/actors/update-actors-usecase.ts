@@ -1,6 +1,6 @@
-import { Either, left, right } from "@/core/types/either"
-import { ResourceNotFoundError } from "../errors/resource-not-found-error"
-import { ActorsRepository } from "../../repositories/actors/actors-repository"
+import { Either, left, right } from '@/core/types/either'
+import { ResourceNotFoundError } from '../errors/resource-not-found-error'
+import { ActorsRepository } from '../../repositories/actors/actors-repository'
 
 export interface UpdadeActorsUseCaseRequest {
   name: string

@@ -11,7 +11,9 @@ let sut: FindByIdDirectorsUseCase
 describe('Find By Id Director', () => {
   beforeEach(() => {
     inMemoryDirectorsRepository = new InMemoryDirectorsRepository()
-    createDirectorsUseCase = new CreateDirectorsUseCase(inMemoryDirectorsRepository)
+    createDirectorsUseCase = new CreateDirectorsUseCase(
+      inMemoryDirectorsRepository,
+    )
     sut = new FindByIdDirectorsUseCase(inMemoryDirectorsRepository)
   })
 
@@ -19,7 +21,8 @@ describe('Find By Id Director', () => {
     const newDirector = makeDirectors()
     const directorCreated = await createDirectorsUseCase.execute(newDirector)
     let id: string = ''
-    if (directorCreated.isRight()) id = directorCreated.value?.director.id.toString()
+    if (directorCreated.isRight())
+      id = directorCreated.value?.director.id.toString()
 
     const result = await sut.execute(id)
 

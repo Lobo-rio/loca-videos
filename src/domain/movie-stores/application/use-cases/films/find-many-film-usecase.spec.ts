@@ -1,7 +1,7 @@
-import { InMemoryFilmsRepository } from "test/repositories/in-memory-films-repository"
-import { CreateFilmsUseCase } from "./create-films-usecase"
-import { FindManyFilmsUseCase } from "./find-many-film-usecase"
-import { makeFilms } from "test/factories/make-films"
+import { InMemoryFilmsRepository } from 'test/repositories/in-memory-films-repository'
+import { CreateFilmsUseCase } from './create-films-usecase'
+import { FindManyFilmsUseCase } from './find-many-film-usecase'
+import { makeFilms } from 'test/factories/make-films'
 
 let inMemoryFilmsRepository: InMemoryFilmsRepository
 let createFilmsUseCase: CreateFilmsUseCase

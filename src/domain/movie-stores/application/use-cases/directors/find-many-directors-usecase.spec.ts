@@ -1,7 +1,7 @@
-import { InMemoryDirectorsRepository } from "test/repositories/in-memory-directors-repository"
-import { CreateDirectorsUseCase } from "./create-directors-usecase"
-import { FindManyDirectorsUseCase } from "./find-many-directors-usecase"
-import { makeDirectors } from "test/factories/make-directors"
+import { InMemoryDirectorsRepository } from 'test/repositories/in-memory-directors-repository'
+import { CreateDirectorsUseCase } from './create-directors-usecase'
+import { FindManyDirectorsUseCase } from './find-many-directors-usecase'
+import { makeDirectors } from 'test/factories/make-directors'
 
 let inMemoryDirectorsRepository: InMemoryDirectorsRepository
 let createDirectorsUseCase: CreateDirectorsUseCase
@@ -10,7 +10,9 @@ let sut: FindManyDirectorsUseCase
 describe('Find Many Directors', () => {
   beforeEach(() => {
     inMemoryDirectorsRepository = new InMemoryDirectorsRepository()
-    createDirectorsUseCase = new CreateDirectorsUseCase(inMemoryDirectorsRepository)
+    createDirectorsUseCase = new CreateDirectorsUseCase(
+      inMemoryDirectorsRepository,
+    )
     sut = new FindManyDirectorsUseCase(inMemoryDirectorsRepository)
   })
 

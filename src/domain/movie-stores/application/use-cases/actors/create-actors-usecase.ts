@@ -4,15 +4,18 @@ import { Actors } from '@/domain/movie-stores/enterprise/entities/actors/actors'
 import { ActorsRepository } from '../../repositories/actors/actors-repository'
 
 export interface CreateActorsUseCaseRequest {
-    name: string
-    sex: string
-    birth: Date
-    country: string
+  name: string
+  sex: string
+  birth: Date
+  country: string
 }
 
-type CreateActorsUseCaseResponse = Either<ResourceExistedError, {
-  actor: Actors
-}>
+type CreateActorsUseCaseResponse = Either<
+  ResourceExistedError,
+  {
+    actor: Actors
+  }
+>
 
 export class CreateActorsUseCase {
   constructor(private readonly actorRepository: ActorsRepository) {}
@@ -24,10 +27,10 @@ export class CreateActorsUseCase {
     country,
   }: CreateActorsUseCaseRequest): Promise<CreateActorsUseCaseResponse> {
     const actor = Actors.create({
-        name,
-        sex,
-        birth,
-        country,
+      name,
+      sex,
+      birth,
+      country,
     })
 
     const actorExisted = await this.actorRepository.findByName(name)

@@ -3,9 +3,12 @@ import { ResourceNotFoundError } from '../errors/resource-not-found-error'
 import { Films } from '@/domain/movie-stores/enterprise/entities/films/films'
 import { FilmsRepository } from '../../repositories/films/films-repository'
 
-type FindByIdFilmsUseCaseResponse = Either<ResourceNotFoundError, {
-  film: Films
-}>
+type FindByIdFilmsUseCaseResponse = Either<
+  ResourceNotFoundError,
+  {
+    film: Films
+  }
+>
 
 export class FindByIdFilmsUseCase {
   constructor(private readonly filmRepository: FilmsRepository) {}

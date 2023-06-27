@@ -1,6 +1,6 @@
-import { Either, left, right } from "@/core/types/either"
-import { ResourceNotFoundError } from "../errors/resource-not-found-error"
-import { DirectorsRepository } from "../../repositories/directors/directors-repository"
+import { Either, left, right } from '@/core/types/either'
+import { ResourceNotFoundError } from '../errors/resource-not-found-error'
+import { DirectorsRepository } from '../../repositories/directors/directors-repository'
 
 export interface UpdadeDirectorsUseCaseRequest {
   name: string

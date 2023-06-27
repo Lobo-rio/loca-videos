@@ -1,13 +1,13 @@
-import { Either, left, right } from "@/core/types/either"
-import { FilmsRepository } from "../../repositories/films/films-repository"
-import { ResourceNotFoundError } from "../errors/resource-not-found-error"
+import { Either, left, right } from '@/core/types/either'
+import { FilmsRepository } from '../../repositories/films/films-repository'
+import { ResourceNotFoundError } from '../errors/resource-not-found-error'
 
 export interface UpdadeFilmsUseCaseRequest {
-    description: string
-    launch: Date
-    boxOffice: number
-    indications: string
-    basedOn: string
+  description: string
+  launch: Date
+  boxOffice: number
+  indications: string
+  basedOn: string
 }
 
 type UpdadeFilmsUseCaseResponse = Either<ResourceNotFoundError, {}>

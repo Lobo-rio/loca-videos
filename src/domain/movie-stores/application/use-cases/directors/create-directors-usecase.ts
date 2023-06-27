@@ -4,16 +4,19 @@ import { Directors } from '@/domain/movie-stores/enterprise/entities/directors/d
 import { DirectorsRepository } from '../../repositories/directors/directors-repository'
 
 export interface CreateDirectorsUseCaseRequest {
-    name: string
-    sex: string
-    birth: Date
-    country: string
+  name: string
+  sex: string
+  birth: Date
+  country: string
 }
 
-type CreateDirectorsUseCaseResponse = Either<ResourceExistedError, {
-  director: Directors
-}>
- 
+type CreateDirectorsUseCaseResponse = Either<
+  ResourceExistedError,
+  {
+    director: Directors
+  }
+>
+
 export class CreateDirectorsUseCase {
   constructor(private readonly directorRepository: DirectorsRepository) {}
 
@@ -24,10 +27,10 @@ export class CreateDirectorsUseCase {
     country,
   }: CreateDirectorsUseCaseRequest): Promise<CreateDirectorsUseCaseResponse> {
     const director = Directors.create({
-        name,
-        sex,
-        birth,
-        country,
+      name,
+      sex,
+      birth,
+      country,
     })
 
     const directorExisted = await this.directorRepository.findByName(name)

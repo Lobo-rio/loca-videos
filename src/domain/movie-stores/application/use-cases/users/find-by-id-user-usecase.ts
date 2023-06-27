@@ -3,9 +3,12 @@ import { UsersRepository } from '../../repositories/users/users-repository'
 import { Either, left, right } from '@/core/types/either'
 import { ResourceNotFoundError } from '../errors/resource-not-found-error'
 
-type FindByIdUsersUseCaseResponse = Either<ResourceNotFoundError, {
-  user: User
-}>
+type FindByIdUsersUseCaseResponse = Either<
+  ResourceNotFoundError,
+  {
+    user: User
+  }
+>
 
 export class FindByIdUsersUseCase {
   constructor(private readonly userRepository: UsersRepository) {}

@@ -11,7 +11,9 @@ let sut: DeleteDirectorsUseCase
 describe('Delete Director', () => {
   beforeEach(() => {
     inMemoryDirectorsRepository = new InMemoryDirectorsRepository()
-    createDirectorsUseCase = new CreateDirectorsUseCase(inMemoryDirectorsRepository)
+    createDirectorsUseCase = new CreateDirectorsUseCase(
+      inMemoryDirectorsRepository,
+    )
     sut = new DeleteDirectorsUseCase(inMemoryDirectorsRepository)
   })
 
@@ -19,7 +21,8 @@ describe('Delete Director', () => {
     const newDirector = makeDirectors()
     const directorCreated = await createDirectorsUseCase.execute(newDirector)
     let id: string = ''
-    if (directorCreated.isRight()) id = directorCreated.value?.director.id.toString()
+    if (directorCreated.isRight())
+      id = directorCreated.value?.director.id.toString()
 
     const result = await sut.execute(id)
 
@@ -30,7 +33,7 @@ describe('Delete Director', () => {
   it('should be able to delte not found a Director', async () => {
     const newDirector = makeDirectors()
     await createDirectorsUseCase.execute(newDirector)
-    
+
     const result = await sut.execute('director-test-1')
 
     expect(result.isLeft()).toBe(true)

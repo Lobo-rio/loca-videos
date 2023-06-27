@@ -5,18 +5,21 @@ import { FilmsRepository } from '../../repositories/films/films-repository'
 import { Slug } from '@/domain/movie-stores/enterprise/entities/value-objects/slug'
 
 interface CreateFilmsUseCaseRequest {
-    title: string
-    slug: Slug
-    description: string
-    launch: Date
-    boxOffice: number
-    indications: string
-    basedOn: string
+  title: string
+  slug: Slug
+  description: string
+  launch: Date
+  boxOffice: number
+  indications: string
+  basedOn: string
 }
 
-type CreateFilmsUseCaseResponse = Either<ResourceExistedError, {
-  film: Films
-}>
+type CreateFilmsUseCaseResponse = Either<
+  ResourceExistedError,
+  {
+    film: Films
+  }
+>
 
 export class CreateFilmsUseCase {
   constructor(private readonly filmRepository: FilmsRepository) {}
@@ -31,13 +34,13 @@ export class CreateFilmsUseCase {
     basedOn,
   }: CreateFilmsUseCaseRequest): Promise<CreateFilmsUseCaseResponse> {
     const film = Films.create({
-        title,
-        slug,
-        description,
-        launch,
-        boxOffice,
-        indications,
-        basedOn,
+      title,
+      slug,
+      description,
+      launch,
+      boxOffice,
+      indications,
+      basedOn,
     })
 
     const filmExisted = await this.filmRepository.findByTitle(title)

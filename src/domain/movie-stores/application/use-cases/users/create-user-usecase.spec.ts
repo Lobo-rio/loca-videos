@@ -1,7 +1,6 @@
 import { CreateUsersUseCase } from './create-user-usecase'
 import { InMemoryUsersRepository } from 'test/repositories/in-memory-users-repository'
 import { makeUsers } from 'test/factories/make-users'
-import { Right } from '@/core/types/either'
 import { ResourceExistedError } from '../errors/resource-existed-error'
 
 let inMemoryUsersRepository: InMemoryUsersRepository

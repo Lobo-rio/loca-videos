@@ -9,4 +9,3 @@ export interface DirectorsRepository {
   update(id: string, directors: UpdadeDirectorsUseCaseRequest): Promise<void>
   delete(id: string): Promise<void>
 }
- 

@@ -2,9 +2,12 @@ import { Either, right } from '@/core/types/either'
 import { Directors } from '@/domain/movie-stores/enterprise/entities/directors/directors'
 import { DirectorsRepository } from '../../repositories/directors/directors-repository'
 
-type FindManyDirectorsUseCaseResponse = Either<null, {
-  directors: Directors[]
-}>
+type FindManyDirectorsUseCaseResponse = Either<
+  null,
+  {
+    directors: Directors[]
+  }
+>
 
 export class FindManyDirectorsUseCase {
   constructor(private readonly directorRepository: DirectorsRepository) {}

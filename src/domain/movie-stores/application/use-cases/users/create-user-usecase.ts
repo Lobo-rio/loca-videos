@@ -10,9 +10,12 @@ interface CreateUsersUseCaseRequest {
   sector: string
 }
 
-type CreateUsersUseCaseResponse = Either<ResourceExistedError, {
-  user: User
-}>
+type CreateUsersUseCaseResponse = Either<
+  ResourceExistedError,
+  {
+    user: User
+  }
+>
 
 export class CreateUsersUseCase {
   constructor(private readonly userRepository: UsersRepository) {}

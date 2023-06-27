@@ -2,9 +2,12 @@ import { Either, right } from '@/core/types/either'
 import { Films } from '@/domain/movie-stores/enterprise/entities/films/films'
 import { FilmsRepository } from '../../repositories/films/films-repository'
 
-type FindManyFilmsUseCaseResponse = Either<null, {
-  films: Films[]
-}>
+type FindManyFilmsUseCaseResponse = Either<
+  null,
+  {
+    films: Films[]
+  }
+>
 
 export class FindManyFilmsUseCase {
   constructor(private readonly filmRepository: FilmsRepository) {}

@@ -30,7 +30,7 @@ describe('Delete Actor', () => {
   it('should be able to delte not found a actor', async () => {
     const newActor = makeActors()
     await createActorsUseCase.execute(newActor)
-    
+
     const result = await sut.execute('actor-test-1')
 
     expect(result.isLeft()).toBe(true)

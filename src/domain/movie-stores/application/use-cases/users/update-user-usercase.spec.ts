@@ -1,6 +1,5 @@
 import { CreateUsersUseCase } from './create-user-usecase'
 import { InMemoryUsersRepository } from 'test/repositories/in-memory-users-repository'
-import { makeUsers } from 'test/factories/make-users'
 import { UpdadeUsersUseCase } from './update-user-usercase'
 
 let inMemoryUsersRepository: InMemoryUsersRepository
