@@ -19,7 +19,7 @@ describe('Create Movie Director', () => {
     expect(result.isRight()).toBe(true)
   })
 
-  it('should not be able to create a moviedirector with the same name', async () => {
+  it('should not be able to create a moviedirector with the same director', async () => {
     let newMovieDirector: any, result: any
 
     for (let i = 0; i < 2; i++) {
