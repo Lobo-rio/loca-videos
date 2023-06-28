@@ -1,8 +1,8 @@
 import { MovieDirectorsRepository } from "@/domain/movie-stores/application/repositories/movie-directors/movie-directors-repository"
+import { UpdadeMovieDirectorsUseCaseRequest } from "@/domain/movie-stores/application/use-cases/movie-directors/update-movie-directors-usecase"
 import { MovieDirectors } from "@/domain/movie-stores/enterprise/entities/movie-directors/movie-directors"
 
 export class InMemoryMovieDirectorsRepository implements MovieDirectorsRepository {
-    
     public moviedirectors: MovieDirectors[] = []
 
     async findById(id: string) {
@@ -33,13 +33,13 @@ export class InMemoryMovieDirectorsRepository implements MovieDirectorsRepositor
         return moviedirector;
     }
 
-    async update(id: string, moviedirectorUpdate: UpdadeMovieDirectorsUseCaseRequest) {
+    async update(id: string, movieDirectorsUpdate: UpdadeMovieDirectorsUseCaseRequest) {
         const moviedirectorExisted = this.moviedirectors.find(
             (moviedirector) => id === moviedirector.id.toString()
         )
         
         if (moviedirectorExisted) {
-            moviedirectorExisted.function = moviedirectorUpdate.function
+            moviedirectorExisted.function = movieDirectorsUpdate.functions
         }
 
         const moviedirectorIndex = this.moviedirectors.findIndex(
@@ -49,7 +49,7 @@ export class InMemoryMovieDirectorsRepository implements MovieDirectorsRepositor
 
         if (moviedirectorExisted) this.moviedirectors.push(moviedirectorExisted)
     }
-    
+
     async delete(id: string) {
         const moviedirectorIndex = this.moviedirectors.findIndex((moviedirector) => id === moviedirector.id.toString())
         this.moviedirectors.splice(moviedirectorIndex, 1)
