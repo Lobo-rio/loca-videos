@@ -1,4 +1,5 @@
 import { MoviesCastRepository } from "@/domain/movie-stores/application/repositories/movies-cast/movies-cast-repository"
+import { UpdadeMoviesCastUseCaseRequest } from "@/domain/movie-stores/application/use-cases/movies-cast/update-movies-cast-usecase"
 import { MoviesCast } from "@/domain/movie-stores/enterprise/entities/movies-cast/movies-cast"
 
 export class InMemoryMoviesCastRepository implements MoviesCastRepository {
@@ -38,7 +39,7 @@ export class InMemoryMoviesCastRepository implements MoviesCastRepository {
         )
         
         if (moviesCastExisted) {
-            moviesCastExisted.function = moviesCastUpdate.functions
+            moviesCastExisted.function = moviesCastUpdate.functionActors
         }
 
         const moviesCastIndex = this.moviescast.findIndex(
