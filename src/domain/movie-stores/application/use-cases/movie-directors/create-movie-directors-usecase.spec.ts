@@ -25,7 +25,7 @@ describe('Create Movie Director', () => {
     for (let i = 0; i < 2; i++) {
       newMovieDirector = makeMovieDirectors({
         filmsId: 'films-test-1',
-        directorsId: 'directors-test-1',
+        directorsId: 'movie-directors-test-1',
       })
       result = await sut.execute(newMovieDirector)
     }

@@ -1,18 +1,18 @@
 import { Either, left, right } from '@/core/types/either'
 import { ResourceNotFoundError } from '../errors/resource-not-found-error'
-import { DirectorsRepository } from '../../repositories/directors/directors-repository'
+import { MovieDirectorsRepository } from '../../repositories/movie-directors/movie-directors-repository'
 
-type DeleteDirectorsUseCaseResponse = Either<ResourceNotFoundError, {}>
+type DeleteMovieDirectorsUseCaseResponse = Either<ResourceNotFoundError, {}>
 
-export class DeleteDirectorsUseCase {
-  constructor(private readonly directorRepository: DirectorsRepository) {}
+export class DeleteMovieDirectorsUseCase {
+  constructor(private readonly movieDirectorRepository: MovieDirectorsRepository) {}
 
-  async execute(id: string): Promise<DeleteDirectorsUseCaseResponse> {
-    const director = await this.directorRepository.findById(id)
+  async execute(id: string): Promise<DeleteMovieDirectorsUseCaseResponse> {
+    const movieDirector = await this.movieDirectorRepository.findById(id)
 
-    if (!director) return left(new ResourceNotFoundError())
+    if (!movieDirector) return left(new ResourceNotFoundError())
 
-    await this.directorRepository.delete(id)
+    await this.movieDirectorRepository.delete(id)
 
     return right({})
   }

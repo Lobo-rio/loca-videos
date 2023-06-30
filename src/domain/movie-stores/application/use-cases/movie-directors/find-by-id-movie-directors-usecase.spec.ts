@@ -19,7 +19,7 @@ describe('Find By Id MovieDirector', () => {
     const newMovieDirector = makeMovieDirectors()
     const moviedirectorCreated = await createMovieDirectorsUseCase.execute(newMovieDirector)
     let id: string = ''
-    if (moviedirectorCreated.isRight()) id = moviedirectorCreated.value?.moviedirector.id.toString()
+    if (moviedirectorCreated.isRight()) id = moviedirectorCreated.value?.movieDirectors.id.toString()
 
     const result = await sut.execute(id)
 
