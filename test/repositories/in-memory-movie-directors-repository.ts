@@ -39,7 +39,7 @@ export class InMemoryMovieDirectorsRepository implements MovieDirectorsRepositor
         )
         
         if (moviedirectorExisted) {
-            moviedirectorExisted.function = movieDirectorsUpdate.functions
+            moviedirectorExisted.function = movieDirectorsUpdate.functionDirectors
         }
 
         const moviedirectorIndex = this.moviedirectors.findIndex(

@@ -1,16 +1,15 @@
 import { Either, left, right } from '@/core/types/either'
 import { ResourceNotFoundError } from '../errors/resource-not-found-error'
-import { DirectorsRepository } from '../../repositories/directors/directors-repository'
+import { MovieDirectorsRepository } from '../../repositories/movie-directors/movie-directors-repository'
 
 export interface UpdadeMovieDirectorsUseCaseRequest {
-  execute(arg0: string, arg1: { functionDirectors: string }): unknown
   functionDirectors: string
 }
 
 type UpdadeMovieDirectorsUseCaseResponse = Either<ResourceNotFoundError, {}>
 
 export class UpdadeMovieDirectorsUseCase {
-  constructor(private readonly movieDirectorsRepository: DirectorsRepository) {}
+  constructor(private readonly movieDirectorsRepository: MovieDirectorsRepository) {}
 
   async execute(
     id: string,

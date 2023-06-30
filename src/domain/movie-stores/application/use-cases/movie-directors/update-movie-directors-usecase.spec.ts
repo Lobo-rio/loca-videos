@@ -8,7 +8,7 @@ import { makeMovieDirectors } from 'test/factories/make-movie-directors'
 
 let inMemoryMovieDirectorsRepository: InMemoryMovieDirectorsRepository
 let createMovieDirectorsUseCase: CreateMovieDirectorsUseCase
-let sut: UpdadeMovieDirectorsUseCaseRequest
+let sut: UpdadeMovieDirectorsUseCase
 
 describe('Update MovieDirector', () => {
   beforeEach(() => {
